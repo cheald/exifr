@@ -16,8 +16,8 @@ module EXIFR
   class IPTC
     attr_reader :fields
 
-    # IPTC IIM specifics the default encoding is ISO646/4873, which is roughly ASCII
-    DEFAULT_ENCODING = Encoding::ASCII
+    # IPTC IIM specifics the default encoding is ISO646/4873, which is supersceded by ISO-8859-1
+    DEFAULT_ENCODING = Encoding::ISO8859_1
 
     # Descriptions of records and their datasets.
     RECORDS = {
