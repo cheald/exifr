@@ -304,14 +304,8 @@ module EXIFR
         raise MalformedJPEG, "Expected XMP header at byte #{start} but got: #{header.inspect}"
       end
 
-      begin
-        require "xmp_fixed"
-      rescue LoadError
-        EXIFR.logger.warn "EXIFR::JPEG: Install xmp_fixed gem for XMP metadata"
-      end
-
-      if defined? XmpFixed
-        @xmp = XmpFixed.new(io.read(length))
+      if defined? XMP
+        @xmp = XMP.new(io.read(length))
       end
     end
 
